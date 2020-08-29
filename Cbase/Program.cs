@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Base
+namespace Cbase
 {
     class Program
     {
