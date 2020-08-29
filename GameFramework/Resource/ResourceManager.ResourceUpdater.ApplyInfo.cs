@@ -122,10 +122,8 @@ namespace GameFramework.Resource
                 /// </summary>
                 public int HashCode
                 {
-                    get
-                    {
-                        return m_HashCode;
-                    }
+                    get;
+                    set;
                 }
 
                 /// <summary>

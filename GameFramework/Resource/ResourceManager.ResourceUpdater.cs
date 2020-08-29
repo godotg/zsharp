@@ -529,7 +529,7 @@ namespace GameFramework.Resource
                             if (applyInfo.LoadType == LoadType.LoadFromMemoryAndQuickDecrypt || applyInfo.LoadType == LoadType.LoadFromMemoryAndDecrypt
                                 || applyInfo.LoadType == LoadType.LoadFromBinaryAndQuickDecrypt || applyInfo.LoadType == LoadType.LoadFromBinaryAndDecrypt)
                             {
-                                Utility.Converter.GetBytes(applyInfo.HashCode, m_CachedHashBytes);
+                                applyInfo.HashCode = Utility.Converter.GetInt32(m_CachedHashBytes);
                                 if (applyInfo.LoadType == LoadType.LoadFromMemoryAndQuickDecrypt || applyInfo.LoadType == LoadType.LoadFromBinaryAndQuickDecrypt)
                                 {
                                     hashCode = Utility.Verifier.GetCrc32(fileStream, m_CachedHashBytes, Utility.Encryption.QuickEncryptLength);
@@ -847,7 +847,7 @@ namespace GameFramework.Resource
                         if (updateInfo.LoadType == LoadType.LoadFromMemoryAndQuickDecrypt || updateInfo.LoadType == LoadType.LoadFromMemoryAndDecrypt
                             || updateInfo.LoadType == LoadType.LoadFromBinaryAndQuickDecrypt || updateInfo.LoadType == LoadType.LoadFromBinaryAndDecrypt)
                         {
-                            Utility.Converter.GetBytes(updateInfo.HashCode, m_CachedHashBytes);
+                            updateInfo.HashCode = Utility.Converter.GetInt32( m_CachedHashBytes);
                             if (updateInfo.LoadType == LoadType.LoadFromMemoryAndQuickDecrypt || updateInfo.LoadType == LoadType.LoadFromBinaryAndQuickDecrypt)
                             {
                                 hashCode = Utility.Verifier.GetCrc32(fileStream, m_CachedHashBytes, Utility.Encryption.QuickEncryptLength);

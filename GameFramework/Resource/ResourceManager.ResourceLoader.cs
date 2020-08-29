@@ -874,7 +874,7 @@ namespace GameFramework.Resource
 
             private void DefaultDecryptResourceCallback(byte[] bytes, int startIndex, int count, string name, string variant, string extension, bool storageInReadOnly, string fileSystem, byte loadType, int length, int hashCode)
             {
-                Utility.Converter.GetBytes(hashCode, m_CachedHashBytes);
+                hashCode = Utility.Converter.GetInt32(m_CachedHashBytes);
                 switch ((LoadType)loadType)
                 {
                     case LoadType.LoadFromMemoryAndQuickDecrypt:

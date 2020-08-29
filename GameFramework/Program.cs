@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 
 namespace GameFramework
 {
@@ -6,7 +6,7 @@ namespace GameFramework
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello Gf!");
         }
     }
 }
