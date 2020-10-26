@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace GameFramework
 {
@@ -18,7 +19,9 @@ namespace GameFramework
         public static class Assembly
         {
             private static readonly System.Reflection.Assembly[] s_Assemblies = null;
-            private static readonly Dictionary<string, Type> s_CachedTypes = new Dictionary<string, Type>(StringComparer.Ordinal);
+
+            private static readonly Dictionary<string, Type> s_CachedTypes =
+                new Dictionary<string, Type>(StringComparer.Ordinal);
 
             static Assembly()
             {
@@ -32,6 +35,41 @@ namespace GameFramework
             public static System.Reflection.Assembly[] GetAssemblies()
             {
                 return s_Assemblies;
+            }
+
+            public static bool typeHasAttribute(Type type, Type attribute)
+            {
+                var attributes = type.GetCustomAttributes(true);
+                foreach (var attr in attributes)
+                {
+                    if (attr.GetType().Equals(attribute))
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            public static FieldInfo[] allTypeFields(Type type)
+            {
+                return type.GetFields(BindingFlags.Public | BindingFlags.NonPublic
+                                                          | BindingFlags.NonPublic | BindingFlags.Instance |
+                                                          BindingFlags.Default);
+            }
+
+            public static bool fieldHasAttribute(FieldInfo fieldInfo, Type attribute)
+            {
+                var attributes = fieldInfo.GetCustomAttributes();
+                foreach (var attr in attributes)
+                {
+                    if (attr.GetType().Equals(attribute))
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
             }
 
             /// <summary>
