@@ -43,8 +43,7 @@ namespace Cbase
 
     class EventTest
     {
-        // static void Main(string[] args)
-        static void MainTest(string[] args)
+        static void Main(string[] args)
         {
             Cat cat = new Cat();
             Mouse m = new Mouse();
@@ -53,7 +52,6 @@ namespace Cbase
             cat.CatCall += m.MouseRun;
             cat.CatCall += p.WakeUp;
             cat.OnCatCall();
-
             Console.ReadKey();
         }
     }

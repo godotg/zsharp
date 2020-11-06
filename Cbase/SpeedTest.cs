@@ -66,7 +66,8 @@ namespace Cbase
             Console.WriteLine("Test3 - reflect invoke: " + stopWatch.ElapsedMilliseconds);
         }
 
-        public static void Main(string[] args)
+        // public static void Main(string[] args)
+        public static void MainTest(string[] args)
         {
             MainClass main = new MainClass();
             main.Test1();
