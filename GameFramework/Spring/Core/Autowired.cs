@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Spring
+namespace Spring.Core
 {
     public class Autowired : Attribute
     {

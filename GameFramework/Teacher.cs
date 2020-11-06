@@ -1,4 +1,5 @@
 ﻿using System;
+using Spring.Core;
 using Spring;
 
 namespace GameFramework

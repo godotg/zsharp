@@ -2,6 +2,6 @@
 {
     public interface IEventReceiver
     {
-        void invoke(IEvent eve);
+        void Invoke(IEvent eve);
     }
 }

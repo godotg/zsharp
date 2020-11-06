@@ -1,5 +1,7 @@
 ﻿using System;
+using Spring.Core;
 using Spring;
+using Spring.Event;
 
 namespace GameFramework
 {
@@ -11,11 +13,15 @@ namespace GameFramework
         {
             Console.WriteLine("Hello Gf!");
 
-            SpringContext.componentScan();
+            SpringContext.Scan();
+            EventBus.GetInstance().Scan();
 
-            var teacher = SpringContext.getComponent<Teacher>();
+            var teacher = SpringContext.GetBean<Teacher>();
             teacher.teachStudent();
             
+            var helloEvent = new HelloEvent();
+            helloEvent.message = "zzzzzzzzz";
+            EventBus.GetInstance().SyncSubmit(helloEvent);
             Console.WriteLine(Utility.Text.Format("Hello {0} {1}", "aa", "bb"));
         }
     }
