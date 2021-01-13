@@ -43,7 +43,8 @@ namespace Cbase
 
     class EventTest
     {
-        static void Main(string[] args)
+        // static void Main(string[] args)
+        static void MainTest(string[] args)
         {
             Cat cat = new Cat();
             Mouse m = new Mouse();
